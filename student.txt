@@ -1,0 +1,89 @@
+import java.util.*;
+class Student
+
+{
+	int id_no;
+	String name;
+	float sscpercentage;
+	float hscpercentage;
+	int jeemarks;
+	public String toString()
+	{
+		return(+id_no+". "+name+" "+sscpercentage+" "+hscpercentage+" "+jeemarks);
+		
+	}
+	
+}
+
+class Student1
+{
+	public static void main(String ags[])
+	{
+		Scanner in=new Scanner(System.in);
+		Vector<Student> v=new Vector<Student>(1,2);
+		int option,element;
+		System.out.println("enter information for students");
+		Student s1;
+		for(int i=1;i<=3;i++)
+		{
+			s1=new Student();
+			System.out.println("Enter id_no");
+			s1.id_no=in.nextInt();
+			System.out.println("Name");
+			s1.name=in.next();
+			System.out.println("SSC Percentage");
+			s1.sscpercentage=in.nextFloat();
+			System.out.println("HSC Percentage");
+			s1.hscpercentage=in.nextFloat();
+			System.out.println("JEE Marks");
+			s1.jeemarks=in.nextInt();
+			v.addElement(s1);
+		}
+		do
+		{
+			System.out.println("1:Add student 2:Remove Student 3:Display Student 4:Quit");
+			System.out.println("Enter your option");
+			option=in.nextInt();
+			
+			switch(option)
+			{
+				case 1: s1=new Student();
+						System.out.println("Enter id_no");
+						s1.id_no=in.nextInt();
+						System.out.println("Name");
+						s1.name=in.next();
+						System.out.println("SSC Percentage");
+						s1.sscpercentage=in.nextFloat();
+						System.out.println("HSC Percentage");
+						s1.hscpercentage=in.nextFloat();
+						System.out.println("JEE Marks");
+						s1.jeemarks=in.nextInt();
+						v.addElement(s1);
+						break;
+				case 2:	System.out.println("Enter id_no");
+						element=in.nextInt();
+						for(int i=0;i<v.size();i++)
+						{
+								s1=v.elementAt(i);
+								if(s1.id_no==element);
+								{
+									v.removeElementAt(i);
+									System.out.println("student removed");	
+								}
+						}
+						break;
+				case 3:	System.out.println("Id. Name   SSC   HSC   JEE");
+						for(int i=0;i<v.size();i++)
+				        {
+							System.out.println(v.elementAt(i));
+						}
+						break;
+				default:break;		
+			}
+			
+			
+		}
+		while(option!=4);
+		
+	}
+}
